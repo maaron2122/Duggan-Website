@@ -1,425 +1,427 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Midnight Drop — Cardano Privacy</title>
 
-    <meta
-      name="description"
-      content="Midnight Drop is a community-driven initiative focused on privacy, compliance, and user-controlled data on Cardano."
-    />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nightshade Technologies</title>
+<meta name="description"
+content="Nightshade Technologies provides blockchain infrastructure provisions through the Midnight Network.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+:root{
+--blue:#2563eb;
+--blue-dark:#1d4ed8;
+--cyan:#22d3ee;
+}
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+html{
+scroll-behavior:smooth;
+}
 
-    <style>
-      body {
-        background-color: #0b0f14;
-        color: #e5e7eb;
-        padding-top: 72px;
-      }
+body{
+font-family:"Outfit",sans-serif;
+background:#000;
+color:#fff;
+padding-top:72px;
+}
 
-      /* ===== Navbar ===== */
-      .backdrop-blur {
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-      }
+.site-symbol-bg{
+position:fixed;
+inset:0;
+z-index:0;
+pointer-events:none;
+background:
+url("midnight-symbol.png") center center / 1275px no-repeat,
+#000;
+opacity:.18;
+}
 
-      .navbar.scrolled {
-        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
-      }
+nav,section,footer{
+position:relative;
+z-index:1;
+}
 
-      /* ===== Hero Background ===== */
-      .bg-midnight {
-        position: relative;
-        background: url("lock.jpeg") center / cover no-repeat;
-        min-height: 70vh;
-        display: flex;
-        align-items: center;
-        animation: fadeIn 1.3s ease both;
-      }
+.navbar{
+background:#000 !important;
+border-bottom:1px solid #111;
+}
 
-      /* Calm default, dramatic zoom only on larger screens */
-      @media (min-width: 992px) {
-        .bg-midnight {
-          background-attachment: fixed;
-          background-size: 110%;
-        }
-      }
+.nav-link{
+color:#fff;
+}
 
-      @media (max-width: 768px) {
-        .bg-midnight {
-          min-height: 60vh;
-          background-position: center top;
-          background-size: 140%;
-        }
-      }
+.nav-link:hover{
+color:var(--cyan)!important;
+}
 
-      .bg-midnight::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(2, 6, 23, 0.72);
-      }
+.brand-block{
+display:flex;
+flex-direction:column;
+line-height:1.1;
+}
 
-      .bg-midnight > .container {
-        position: relative;
-        z-index: 1;
-      }
+.brand-title{
+font-weight:700;
+font-size:1.05rem;
+color:#fff;
+}
 
-      /* ===== Cyan Breathing Glow (Hero) ===== */
-      @keyframes cyanBreath {
-        0%,
-        100% {
-          text-shadow: 0 0 6px rgba(34, 211, 238, 0.22),
-            0 0 18px rgba(34, 211, 238, 0.16),
-            0 0 34px rgba(34, 211, 238, 0.1);
-        }
-        50% {
-          text-shadow: 0 0 10px rgba(34, 211, 238, 0.45),
-            0 0 26px rgba(34, 211, 238, 0.32),
-            0 0 52px rgba(34, 211, 238, 0.22);
-        }
-      }
+.brand-sub{
+font-size:.95rem;
+color:#ffffff;
+font-weight:700;
+letter-spacing:0;
+}
 
-      .hero-glow h1 {
-        color: #ecfeff;
-        animation: cyanBreath 7s ease-in-out infinite;
-      }
+.btn{
+background:var(--blue);
+border:none;
+color:#fff;
+font-weight:600;
+padding:12px 24px;
+border-radius:8px;
+transition:.25s;
+}
 
-      .hero-glow p {
-        text-shadow: 0 2px 16px rgba(0, 0, 0, 0.85);
-      }
+.btn:hover{
+background:var(--blue-dark);
+transform:translateY(-2px);
+box-shadow:0 6px 18px rgba(37,99,235,.35);
+}
 
-      @media (prefers-reduced-motion: reduce) {
-        .hero-glow h1 {
-          animation: none;
-        }
-      }
+.section-shell{
+background:rgba(0,0,0,.35);
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+padding:40px;
+backdrop-filter:blur(6px);
+}
 
-      /* ===== Buttons (re-skin Bootstrap primary) ===== */
-      .btn-primary {
-        background: linear-gradient(135deg, #22d3ee, #3b82f6);
-        border: 0;
-        box-shadow: 0 10px 26px rgba(34, 211, 238, 0.16);
-      }
-      .btn-primary:hover {
-        filter: brightness(1.05);
-        box-shadow: 0 14px 36px rgba(34, 211, 238, 0.22);
-      }
-      .btn-primary:focus {
-        box-shadow: 0 0 0 0.2rem rgba(34, 211, 238, 0.25);
-      }
+.section-title{
+font-size:2rem;
+margin-bottom:20px;
+text-shadow:0 0 12px rgba(34,211,238,.25);
+}
 
-      /* ===== Cards ===== */
-      .card-dark {
-        background-color: #111827;
-        border: 1px solid #1f2937;
-      }
+.section-lead{
+font-size:1.15rem;
+line-height:1.8;
+}
 
-      .card-dark h3 {
-        color: #ecfeff;
-        text-shadow: 0 0 6px rgba(34, 211, 238, 0.22),
-          0 0 14px rgba(34, 211, 238, 0.16);
-        transition: text-shadow 0.35s ease;
-      }
+.contact-form{
+max-width:760px;
+margin:0 auto;
+text-align:left;
+}
 
-      .card-dark:hover h3 {
-        text-shadow: 0 0 8px rgba(34, 211, 238, 0.38),
-          0 0 20px rgba(34, 211, 238, 0.26);
-      }
+.form-label{
+font-weight:600;
+margin-bottom:.45rem;
+}
 
-      @media (prefers-reduced-motion: reduce) {
-        .card-dark h3 {
-          transition: none;
-        }
-      }
+.form-control{
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.14);
+color:#fff;
+padding:.9rem 1rem;
+border-radius:12px;
+}
 
-      /* ===== Forms ===== */
-      .form-dark {
-        background-color: #020617;
-        border: 1px solid #1f2937;
-      }
+.form-control:focus{
+background:rgba(255,255,255,.08);
+border-color:var(--cyan);
+box-shadow:0 0 0 .2rem rgba(34,211,238,.16);
+color:#fff;
+}
 
-      .form-control {
-        background-color: #020617;
-        color: #e5e7eb;
-        border: 1px solid #1f2937;
-        caret-color: #22d3ee;
-      }
+.form-control::placeholder{
+color:rgba(255,255,255,.55);
+}
 
-      .form-control:focus {
-        background-color: #020617;
-        color: #fff;
-        border-color: #22d3ee;
-        box-shadow: none;
-      }
+.form-note{
+color:#aaa;
+font-size:.95rem;
+}
 
-      /* Placeholder text — white */
-      .form-control::placeholder {
-        color: rgba(236, 254, 255, 0.75);
-        opacity: 1;
-      }
+.form-status{
+display:none;
+max-width:760px;
+margin:0 auto 1.5rem;
+padding:1rem 1.25rem;
+border-radius:14px;
+text-align:left;
+}
 
-      .form-control::-webkit-input-placeholder {
-        color: rgba(236, 254, 255, 0.75);
-      }
+.form-status.visible{
+display:block;
+}
 
-      .form-control::-moz-placeholder {
-        color: rgba(236, 254, 255, 0.75);
-      }
+.form-status-success{
+background:rgba(34,197,94,.12);
+border:1px solid rgba(34,197,94,.32);
+color:#d9ffe6;
+}
 
-      .form-control:-ms-input-placeholder {
-        color: rgba(236, 254, 255, 0.75);
-      }
+.form-status-error{
+background:rgba(239,68,68,.12);
+border:1px solid rgba(239,68,68,.32);
+color:#ffdada;
+}
 
-      /* Placeholder polish on focus */
-      .form-control:focus::placeholder {
-        color: rgba(236, 254, 255, 0.45);
-      }
+.form-status-info{
+background:rgba(37,99,235,.12);
+border:1px solid rgba(37,99,235,.32);
+color:#dce8ff;
+}
 
-      footer {
-        color: #6b7280;
-      }
+.hp-field{
+position:absolute;
+left:-9999px;
+opacity:0;
+pointer-events:none;
+}
 
-      /* ===== Text Hierarchy ===== */
-      .text-muted {
-        color: rgba(236, 254, 255, 0.85) !important;
-      }
+footer{
+border-top:1px solid #111;
+color:#aaa;
+}
 
-      section .text-muted {
-        color: rgba(236, 254, 255, 0.9) !important;
-      }
+.fade-section{
+opacity:0;
+transform:translateY(20px);
+transition:.8s;
+}
 
-      .card-dark .text-muted {
-        color: rgba(236, 254, 255, 0.8) !important;
-      }
+.fade-section.visible{
+opacity:1;
+transform:none;
+}
+</style>
+</head>
 
-      /* ===== UX ===== */
-      section[id] {
-        scroll-margin-top: 88px;
-      }
+<body>
+<div class="site-symbol-bg"></div>
 
-      html {
-        scroll-behavior: smooth;
-      }
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<div class="container">
+<a class="navbar-brand brand-block">
+<span class="brand-title">Nightshade Technologies</span>
+<span class="brand-sub">Blockchain Infrastructure Provisions</span>
+</a>
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(6px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    </style>
-  </head>
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
 
-  <body>
-    <!-- Navbar -->
-    <nav
-      class="navbar navbar-expand-lg navbar-dark bg-black bg-opacity-75 border-bottom border-secondary border-opacity-25 fixed-top backdrop-blur"
-    >
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="#">Midnight Drop</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navMenu"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#institutional">Capability</a></li>
+<li class="nav-item"><a class="nav-link" href="#cost">Cost Predictability</a></li>
+<li class="nav-item"><a class="nav-link" href="#compliance">Compliance</a></li>
+<li class="nav-item"><a class="nav-link" href="#deployment">Deployment</a></li>
+<li class="nav-item"><a class="nav-link" href="#sustainability">Sustainability</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
 
-        <div class="collapse navbar-collapse" id="navMenu">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#what">What</a></li>
-            <li class="nav-item"><a class="nav-link" href="#why">Why</a></li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<section id="about" class="pt-5 pb-5 fade-section">
+<div class="container">
+<div class="section-shell">
+<h2 class="section-title">
+About Nightshade
+</h2>
 
-    <!-- Hero -->
-    <header class="bg-midnight text-center">
-      <div class="container py-5 hero-glow">
-        <h1 class="display-5 fw-bold">Midnight Drop</h1>
-        <p class="lead mb-4">Privacy infrastructure for the Cardano ecosystem.</p>
-        <a href="#contact" class="btn btn-primary btn-lg">
-          Contact Midnight Drop
-        </a>
-      </div>
-    </header>
+<p class="section-lead">
+Nightshade provides fourth-generation privacy capabilities to Web3 infrastructure via the Midnight Network. Midnight’s unique dual-token architecture allows Nightshade to operate as a high-capacity cryptographic resource provider by enabling privacy on institutional-grade DeFi. DUST is the essential resource that makes this possible.
+</p>
+</div>
+</div>
+</section>
 
-    <!-- What -->
-    <section id="what" class="py-5">
-      <div class="container">
-        <h2 class="fw-bold mb-3">What is Midnight Drop?</h2>
-        <p class="text-muted">
-          Midnight Drop is a community-driven educational and awareness initiative
-          focused on privacy, compliance, and user-controlled data on Cardano.
-        </p>
-        <p class="text-muted">
-          It exists to help users understand how decentralized systems can offer
-          privacy without sacrificing trust or legality.
-        </p>
-      </div>
-    </section>
+<section id="institutional" class="py-5 fade-section">
+<div class="container">
+<div class="section-shell">
+<h2 class="section-title">
+Institutional-Grade Capability
+</h2>
 
-    <!-- Why -->
-    <section id="why" class="py-5 bg-black bg-opacity-50">
-      <div class="container">
-        <h2 class="fw-bold mb-4">Why Midnight?</h2>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="card card-dark h-100">
-              <div class="card-body">
-                <h3 class="h5 fw-semibold">Privacy by Design</h3>
-                <p class="text-muted mb-0">
-                  Built for selective disclosure and confidentiality.
-                </p>
-              </div>
-            </div>
-          </div>
+<p class="section-lead">
+Nightshade has the capacity to support thousands of daily private transactions for institutional-grade DeFi ecosystems. This capability is provided through delegation of our DUST capacity via smart contracts. Most importantly, our $NIGHT token allocation is 100% unlocked and fully liquid. Nightshade is completely unaffected by the Glacier Drop and all tokens are available for immediate utilization. Please contact us to receive details regarding our $NIGHT token allocation, maximum capacity, and daily manifestation rate.
+</p>
 
-          <div class="col-md-4">
-            <div class="card card-dark h-100">
-              <div class="card-body">
-                <h3 class="h5 fw-semibold">Cardano Native</h3>
-                <p class="text-muted mb-0">
-                  Integrates with Cardano’s secure and decentralized infrastructure.
-                </p>
-              </div>
-            </div>
-          </div>
+<ul>
+<li>Capacity to support thousands of daily private transactions</li>
+<li>100% unlocked and fully liquid $NIGHT token allocation</li>
+<li>Completely unaffected by the Glacier Drop</li>
+<li>Ready for immediate utilization</li>
+</ul>
+</div>
+</div>
+</section>
 
-          <div class="col-md-4">
-            <div class="card card-dark h-100">
-              <div class="card-body">
-                <h3 class="h5 fw-semibold">User-Controlled Data</h3>
-                <p class="text-muted mb-0">
-                  You decide what information is shared — not platforms.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="cost" class="py-5 fade-section">
+<div class="container">
+<div class="section-shell">
+<h2 class="section-title">
+Cost Predictability
+</h2>
 
-    <!-- Contact -->
-    <section id="contact" class="py-5">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <h2 class="fw-bold mb-2">Contact</h2>
-            <p class="text-muted">Questions, collaboration, or feedback? Reach out.</p>
-          </div>
+<p class="section-lead">
+Nightshade offers more than just privacy capabilities. We eliminate the financial risk associated with the volatility of the $NIGHT token. By allowing Nightshade to custody the capital asset, and provide DUST capacity as a service, it completely mitigates the requirement to carry a high-risk asset on a company balance sheet.
+</p>
 
-          <div class="col-lg-6">
-            <!--
-              GitHub Pages is static, so the form needs a third-party handler.
-              Recommended: Formspree.
-              Replace YOUR_FORM_ID with your Formspree form id.
-            -->
-            <form
-              class="form-dark p-4 rounded-4"
-              action="https://formspree.io/f/YOUR_FORM_ID"
-              method="POST"
-            >
-              <div class="mb-3">
-                <label class="form-label" for="name">Name</label>
-                <input
-                  id="name"
-                  name="name"
-                  class="form-control"
-                  placeholder="Your name"
-                  autocomplete="name"
-                  required
-                />
-              </div>
+<p class="section-lead">
+Achieve cost predictability with Nightshade through fixed pricing models. We offer competitive rates that never change despite consumer demand and market volatility.
+</p>
+</div>
+</div>
+</section>
 
-              <div class="mb-3">
-                <label class="form-label" for="email">Email</label>
-                <input
-                  id="email"
-                  name="email"
-                  class="form-control"
-                  type="email"
-                  placeholder="you@example.com"
-                  autocomplete="email"
-                  required
-                />
-              </div>
+<section id="compliance" class="py-5 fade-section">
+<div class="container">
+<div class="section-shell">
+<h2 class="section-title">
+Compliance Ready
+</h2>
 
-              <div class="mb-3">
-                <label class="form-label" for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  class="form-control"
-                  rows="4"
-                  placeholder="Your message..."
-                  required
-                ></textarea>
-              </div>
+<p class="section-lead">
+Nightshade Technologies, LLC is a company based in the United States that is focused on meeting compliance standards and verification requirements with our partners. We also seek to establish and maintain U.S. regulatory and legal compliance along with demonstrating timeless ethical business practices. In short, Nightshade brings trust to a trustless environment.
+</p>
+</div>
+</div>
+</section>
 
-              <!-- Spam trap -->
-              <input
-                type="text"
-                name="_gotcha"
-                class="d-none"
-                tabindex="-1"
-                autocomplete="off"
-              />
+<section id="deployment" class="py-5 fade-section">
+<div class="container">
+<div class="section-shell">
+<h2 class="section-title">
+Rapid Integration and Deployment
+</h2>
 
-              <button type="submit" class="btn btn-primary w-100">Send</button>
+<p class="section-lead">
+Nightshade is positioned to be fully operational on launch day of the DUST Capacity Exchange with full utilization of our entire $NIGHT token allocation. As a high-capacity DUST provider operating in a constantly changing environment, Nightshade is prepared for rapid execution and deployment.
+</p>
+</div>
+</div>
+</section>
 
-              <div class="form-text text-muted mt-2">
-                This form is informational only.
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="sustainability" class="py-5 fade-section">
+<div class="container">
+<div class="section-shell">
+<h2 class="section-title">
+Sustainability
+</h2>
 
-    <!-- Footer -->
-    <footer class="py-4 border-top border-secondary border-opacity-25 text-center">
-      © <span id="year"></span> Midnight Drop — Not financial advice.
-    </footer>
+<p class="section-lead">
+Nightshade is actively seeking to connect with developers in order to establish an exclusive partnership that focuses on longevity and sustainability. Our strategy is simple, to be first to market with institutional-grade capability and an established partnership on day one.
+</p>
+</div>
+</div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
+<section id="contact" class="py-5 fade-section">
+<div class="container">
+<div class="section-shell text-center">
+<h2 class="section-title">
+Contact
+</h2>
 
-      const nav = document.querySelector(".navbar");
-      window.addEventListener("scroll", () => {
-        nav.classList.toggle("scrolled", window.scrollY > 10);
-      });
+<p class="section-lead mb-4">
+Please contact us for general inquiries and additional information.
+</p>
 
-      // Auto-close mobile nav after clicking a link
-      const navMenu = document.getElementById("navMenu");
-      document.querySelectorAll(".navbar-nav .nav-link").forEach((link) => {
-        link.addEventListener("click", () => {
-          const toggler = document.querySelector(".navbar-toggler");
-          if (toggler && window.getComputedStyle(toggler).display !== "none") {
-            const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navMenu);
-            bsCollapse.hide();
-          }
-        });
-      });
-    </script>
-  </body>
+<div class="form-status form-status-info" id="formStatusInfo">
+Submitting this form opens your email app with the inquiry filled in and addressed to operations@nightshadetech.network.
+</div>
+
+<form class="contact-form needs-validation" id="contactForm" novalidate>
+<div class="row g-4">
+<div class="col-md-6">
+<label class="form-label" for="name">Name</label>
+<input class="form-control" id="name" name="name" type="text" placeholder="Your name" required>
+</div>
+
+<div class="col-md-6">
+<label class="form-label" for="email">Email</label>
+<input class="form-control" id="email" name="email" type="email" placeholder="you@example.com" required>
+</div>
+
+<div class="col-12">
+<label class="form-label" for="company">Company</label>
+<input class="form-control" id="company" name="company" type="text" placeholder="Organization or project name">
+</div>
+
+<div class="col-12">
+<label class="form-label" for="message">Message</label>
+<textarea class="form-control" id="message" name="message" rows="6" placeholder="Tell us about your inquiry." required></textarea>
+</div>
+
+<div class="col-12 text-center">
+<button type="submit" class="btn btn-lg">Send Inquiry</button>
+</div>
+
+<div class="col-12 text-center">
+<p class="form-note mb-0">Clicking send will open the visitor's default email app with this message pre-filled to operations@nightshadetech.network.</p>
+</div>
+</div>
+</form>
+</div>
+</div>
+</section>
+
+<footer class="py-4 text-center">
+Nightshade Technology, LLC
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const sections=document.querySelectorAll(".fade-section")
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible")
+}
+})
+})
+
+sections.forEach(section=>observer.observe(section))
+
+const infoBanner=document.getElementById("formStatusInfo")
+const contactForm=document.getElementById("contactForm")
+contactForm.addEventListener("submit",event=>{
+if(!contactForm.checkValidity()){
+event.preventDefault()
+event.stopPropagation()
+contactForm.classList.add("was-validated")
+return
+}
+
+const data=new FormData(contactForm)
+const subject=encodeURIComponent("Nightshade Technologies Inquiry")
+const body=encodeURIComponent([
+`Name: ${data.get("name")}`,
+`Email: ${data.get("email")}`,
+`Company: ${data.get("company") || ""}`,
+"",
+"Message:",
+data.get("message") || ""
+].join("\n"))
+
+window.location.href=`mailto:operations@nightshadetech.network?subject=${subject}&body=${body}`
+event.preventDefault()
+contactForm.classList.add("was-validated")
+infoBanner.classList.add("visible")
+})
+
+</script>
+</body>
 </html>
-

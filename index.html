@@ -40,6 +40,49 @@ url("midnight-symbol.png") center center / 1275px no-repeat,
 opacity:.18;
 }
 
+@media (max-width: 768px){
+body{
+padding-top:88px;
+}
+
+.site-symbol-bg{
+background:
+url("midnight-symbol.png") center 120px / 92vw no-repeat,
+#000;
+opacity:.12;
+}
+
+.section-shell{
+padding:28px 22px;
+}
+
+.section-title{
+font-size:1.65rem;
+}
+
+.section-lead{
+font-size:1.02rem;
+line-height:1.7;
+}
+}
+
+@media (max-width: 480px){
+.site-symbol-bg{
+background:
+url("midnight-symbol.png") center 135px / 105vw no-repeat,
+#000;
+opacity:.1;
+}
+
+.brand-title{
+font-size:.95rem;
+}
+
+.brand-sub{
+font-size:.82rem;
+}
+}
+
 nav,section,footer{
 position:relative;
 z-index:1;
@@ -337,10 +380,6 @@ Contact
 Please contact us for general inquiries and additional information.
 </p>
 
-<div class="form-status form-status-info" id="formStatusInfo">
-Submitting this form opens your email app with the inquiry filled in and addressed to operations@nightshadetech.network.
-</div>
-
 <form class="contact-form needs-validation" id="contactForm" novalidate>
 <div class="row g-4">
 <div class="col-md-6">
@@ -368,7 +407,6 @@ Submitting this form opens your email app with the inquiry filled in and address
 </div>
 
 <div class="col-12 text-center">
-<p class="form-note mb-0">Clicking send will open the visitor's default email app with this message pre-filled to operations@nightshadetech.network.</p>
 </div>
 </div>
 </form>
@@ -395,7 +433,6 @@ entry.target.classList.add("visible")
 
 sections.forEach(section=>observer.observe(section))
 
-const infoBanner=document.getElementById("formStatusInfo")
 const contactForm=document.getElementById("contactForm")
 contactForm.addEventListener("submit",event=>{
 if(!contactForm.checkValidity()){
@@ -419,7 +456,6 @@ data.get("message") || ""
 window.location.href=`mailto:operations@nightshadetech.network?subject=${subject}&body=${body}`
 event.preventDefault()
 contactForm.classList.add("was-validated")
-infoBanner.classList.add("visible")
 })
 
 </script>

@@ -22,6 +22,10 @@ html{
 scroll-behavior:smooth;
 }
 
+section{
+scroll-margin-top:120px;
+}
+
 body{
 font-family:"Outfit",sans-serif;
 background:#000;
@@ -42,7 +46,25 @@ opacity:.18;
 
 @media (max-width: 768px){
 body{
-padding-top:88px;
+padding-top:110px;
+}
+
+section{
+scroll-margin-top:145px;
+}
+
+.navbar .container{
+padding-top:.45rem;
+padding-bottom:.45rem;
+}
+
+.navbar-brand{
+padding-top:.25rem;
+padding-bottom:.25rem;
+}
+
+.navbar-toggler{
+padding:.55rem .8rem;
 }
 
 .site-symbol-bg{
@@ -84,11 +106,11 @@ opacity:.28;
 }
 
 .brand-title{
-font-size:.95rem;
+font-size:1.18rem;
 }
 
 .brand-sub{
-font-size:.82rem;
+font-size:1rem;
 }
 }
 
@@ -356,7 +378,7 @@ Rapid Integration and Deployment
 </h2>
 
 <p class="section-lead">
-Nightshade is positioned to be fully operational on launch day of the DUST Capacity Exchange with full utilization of our entire NIGHT token allocation. As a high-capacity DUST provider operating in a constantly changing environment, Nightshade is prepared for rapid execution and deployment.
+Nightshade is positioned to be fully operational on launch day of the DUST Capacity Exchange with full utilization of our entire NIGHT token allocation. As a high-capacity DUST provider operating in a constantly changing environment, we are prepared for rapid execution and deployment.
 </p>
 </div>
 </div>
@@ -394,7 +416,7 @@ Please contact us for general inquiries and additional information.
 </div>
 
 <div class="col-md-6">
-<input class="form-control" id="email" name="email" type="email" placeholder="you@example.com" required>
+<input class="form-control" id="email" name="email" type="email" placeholder="Email" required>
 </div>
 
 <div class="col-12">
@@ -402,7 +424,7 @@ Please contact us for general inquiries and additional information.
 </div>
 
 <div class="col-12">
-<textarea class="form-control" id="message" name="message" rows="6" placeholder="Submit Message" required></textarea>
+<textarea class="form-control" id="message" name="message" rows="6" placeholder="Message" required></textarea>
 </div>
 
 <div class="col-12 text-center">
